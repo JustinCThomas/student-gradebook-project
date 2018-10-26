@@ -8,10 +8,7 @@ grades = ["A", "B", "C", "F"]
 
 with open("names.txt") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
-    # line_num = 1
     for row in csv_reader:
-        # print(line_num, row)
-        # line_num += 1
         students[row[0]] = {"subjects": {}}
         for i in range(5):
             students[row[0]]["subjects"][subjects[i]] = "Not Enrolled"
