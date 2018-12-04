@@ -1,2 +1,4 @@
 students.csv
 students.json
+venv/
+__pycache__/
