@@ -1,16 +1,17 @@
 from flask import Flask
-
+from flask import render_template
 
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return "Hello  Everyone!"
-
 @app.route('/login')
 def login():
-    return "Insert Login Page here: "
+    return render_template('login.html')
 
-@app.route('/homepage')
-def homepage():
-    return "Insert Home Page here: "
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
+@app.route('/teacher')
+def teacher():
+    return render_template('teacher.html')
