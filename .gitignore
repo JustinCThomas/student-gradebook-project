@@ -1,4 +1,5 @@
 students.csv
 students.json
+database.db
 venv/
 __pycache__/
