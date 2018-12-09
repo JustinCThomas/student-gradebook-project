@@ -19,8 +19,7 @@ teacher_table = """
 CREATE TABLE IF NOT EXISTS teachers (
     id integer PRIMARY KEY AUTOINCREMENT,
     name TEXT
-)
-"""
+)"""
 
 student_accounts = """
 CREATE TABLE IF NOT EXISTS student_accounts (
@@ -30,8 +29,7 @@ CREATE TABLE IF NOT EXISTS student_accounts (
     FOREIGN KEY (id) REFERENCES students (id)
     ON UPDATE CASCADE
     ON DELETE CASCADE
-)
-"""
+)"""
 
 teacher_accounts = """
 CREATE TABLE IF NOT EXISTS teacher_accounts (
@@ -41,27 +39,24 @@ CREATE TABLE IF NOT EXISTS teacher_accounts (
     FOREIGN KEY (id) REFERENCES teachers(id)
     ON UPDATE CASCADE
     ON DELETE CASCADE
-)
-"""
+)"""
 
 
 cursor.execute(student_table)
-for key, value in students.items():
-    print(key)
-    print()
-
-
-print("\n\n\n")
-print(students["MAURICE BEY"])
-
 cursor.execute(teacher_table)
-
-
 cursor.execute(student_accounts)
-
-
 cursor.execute(teacher_accounts)
 
+gradebook.commit()
+
+student_classes_template = "INSERT OR IGNORE INTO students (name, Art, Math, History, Literature, Science) VALUES (?, ?, ?, ?, ?, ?)"
+
+for key, value in students.items():
+    cursor.execute(student_classes_template, (key, value['subjects']['Art'], value['subjects']['Math'], value['subjects']['History'], value['subjects']['Literature'], value['subjects']['Science']))
+    
+gradebook.commit()
+
+# student_account_template = "INSERT INTO students (name, Art, Math, History, Literature, Science)"
 
 
 
