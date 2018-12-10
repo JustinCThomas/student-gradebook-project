@@ -80,6 +80,7 @@ for i in range(1, 8):
     teacher_id_num += 1
 
 gradebook.commit()
+gradebook.close()
 
 ## search each object
 
