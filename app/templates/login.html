@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Account Login</title>
-  </head>
-  <body>
-    <h1>Login</h1>
-  </body>
+	<html>
+	<head>
+		<title>Login | Professor Gradebook</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+		<!-- <link rel="stylesheet" type="text/css" href="css/mystyles.css"> -->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/mystyles.css')}}">
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="container">
+				<div class="row text-center fixed-top nav">
+					<div class="col">
+						<h1>Professor Gradebook</h1>
+					</div>
+				</div>
+			</div>
+
+				<!-- login section -->
+			<form method="POST" action='' class="container login">
+				<div class="row">
+					<div class="col">
+						<h6 id="login">Login</h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-1 text-center">
+						<input id="username" type="text" placeholder="Enter username" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-1 text-center">
+						<input id="password" type="password" placeholder="Enter password" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-1 text-center">
+						<input id="submit" type="submit" value="Submit">
+					</div>
+				</div>
+			</form>
+
+
+			<div class="container-fluid fixed-bottom footer">
+				<div class="row">
+					<div class="col-5 ml-auto">
+						<p>Fluff</p>
+					 </div>
+					<div class="col-4">
+						<p>More fluff</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="http://cdn.jsdelivr.net/alasql/latest/alasql.min.js"></script>
+		<script>
+			/*var db = new alasql.Database();
+			//Create table for title, date, message, and importance
+			db.exec(`CREATE TABLE classroom (id int PRIMARY KEY, name varchar(255), cryptoTrading float, kanyelogy float, yoga float, automationManagement float, gpa int)`);
+
+			db.exec(`INSERT INTO classroom VALUES(${id}, "${name}", "${cryptoTrading}" ,"${kanyelogy}", "${yoga}", "${automationManagement}")`);*/
+
+
+
+
+		</script>
+	</body>
 </html>
