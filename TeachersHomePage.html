@@ -12,7 +12,8 @@
 			}
 			
 			table{
-				
+				padding: 10px 0px 10px 0px;
+				margin:auto;
 				width: 80%;
 				align: center;
 				
@@ -24,12 +25,12 @@
 				text-align: center;
 				background-color: #A0AEF9;				
 				border-radius: 10%;
-				padding:5px 90px 90px 5px;
+				padding:5px 80px 5px 80px;
 			}
 			h1{
 				font-family: sans-serif;				
 				font-weight: bolder;
-				font-size: 100px;
+				font-size: 80px;
 			}
 			footer{
 				background-color: #A0AEF9;
@@ -38,7 +39,21 @@
 				align: center;
 				padding: 50px;
 				width: 1000px;
-				font-size: 30px
+				font-size: 30px;
+				border:solid gray;
+				margin:auto;
+				font-family: sans-serif;
+			}
+			h4{text-align: center;
+
+			}
+			footer{
+				position:relative;
+				bottom: 5px;
+			}
+			form{
+				font-size: 20px;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -48,7 +63,13 @@
 				<h1>School Title</h1>
 				<h3>Welcome, Teacher</h3>
 			</header>
-			<h4>Search Students</h3>
+			<h4>Search Students</h4>
+			<form>
+				First name:
+				<input type="text" name="firstname" value="John">
+				LastName:
+				<input type="text" name="Last name" value="Brown">
+			</form>
 				<table > 
 					<tr>
 						<th>Name</th>
