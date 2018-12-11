@@ -18,7 +18,7 @@
 			</div>
 
 				<!-- login section -->
-			<div class="container login">
+			<form method="POST" action='' class="container login">
 				<div class="row">
 					<div class="col">
 						<h6 id="login">Login</h6>
@@ -26,21 +26,21 @@
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="username" type="text" placeholder="Enter username">
+						<input id="username" type="text" placeholder="Enter username" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="password" type="text" placeholder="Enter password">
+						<input id="password" type="password" placeholder="Enter password" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="submit" type="button" value="Submit">
+						<input id="submit" type="submit" value="Submit">
 					</div>
 				</div>
-			</div>
-			
+			</form>
+
 
 			<div class="container-fluid fixed-bottom footer">
 				<div class="row">
@@ -64,7 +64,7 @@
 
 
 
-			
+
 		</script>
 	</body>
 </html>
