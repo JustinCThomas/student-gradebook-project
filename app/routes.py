@@ -21,4 +21,11 @@ def student():
 
 @app.route('/teacher')
 def teacher():
-    return render_template('teacher.html')
+    con = sqlite3.connect('database.db')
+    con.row_factory = sqlite3.Row
+
+    cur = con.cursor()
+    cur.execute("select * from teachers where id = 1")
+
+    row = cur.fetchone()
+    return render_template('teacher.html', row = row)
