@@ -32,14 +32,14 @@
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="username" type="text" placeholder="Enter username" value="{{
-							request.form.username }}">
+						<input id="username" type="text" placeholder="Enter username" name="username" value="{{
+							request.form.username }}" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="password" type="password" placeholder="Enter password" value="{{
-							request.form.password }}">
+						<input id="password" type="password" placeholder="Enter password" name="password" value="{{
+							request.form.password }}" required>
 					</div>
 				</div>
 				<div class="row">
@@ -59,7 +59,7 @@
 						<p>Wanna contact us?<br>
 								GraPy@python.py
 						</p>
-						
+
 					 </div>
 					<div class="col-4">
 						<p>This website is open source. <br>Please use it and its source code as you see fit</p>
@@ -67,18 +67,5 @@
 				</div>
 			</div>
 		</div>
-
-		<script src="http://cdn.jsdelivr.net/alasql/latest/alasql.min.js"></script>
-		<script>
-			/*var db = new alasql.Database();
-			//Create table for title, date, message, and importance
-			db.exec(`CREATE TABLE classroom (id int PRIMARY KEY, name varchar(255), cryptoTrading float, kanyelogy float, yoga float, automationManagement float, gpa int)`);
-
-			db.exec(`INSERT INTO classroom VALUES(${id}, "${name}", "${cryptoTrading}" ,"${kanyelogy}", "${yoga}", "${automationManagement}")`);*/
-
-
-
-
-		</script>
 	</body>
 </html>
