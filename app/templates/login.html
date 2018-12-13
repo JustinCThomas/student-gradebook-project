@@ -9,11 +9,13 @@
 
 	</head>
 	<body>
+		
 		<div class="container">
 			<div class="container">
 				<div class="row text-center fixed-top nav">
 					<div class="col">
-						<h1>Professor Gradebook</h1>
+						<img src="{{url_for('static', filename='GraPy2.jpg')}}" alt='our logo' width="40%" height="60%">
+						<!-- <h1>Professor Gradebook</h1> -->
 						{% if error %}
 						<h3 style="color: darkred; font-size: 26px;"> {{error}}</h3>
 						{% endif %}
