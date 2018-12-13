@@ -54,7 +54,7 @@
 			div.tBorder{
 				width: 800px;
 				background-color: #A0AEF9;
-				border-radius: 10%;
+				border-radius: 5%;
 				border: 5px solid gray;
 				text-align: center;
 				font-size: 25px;
@@ -103,17 +103,18 @@
 			<div class="tBorder">
 				<table >
 					<tr>
+						<td>Id</td>
 						<th>Name</th>
 						<th>Art</th>
 						<th>Literature</th>
 						<th>Math</th>
 						<th>Science</th>
 						<th>History</th>
-						<th>GPA</th>
 					</tr>
 
 					{% for item in data %}
 							<tr>
+								<td>{{item["id"]}}</td>
 								<td>{{item["name"]}}</td>
 								<td>{{item["Art"]}}</td>
 								<td>{{item["Literature"]}}</td>
