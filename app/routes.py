@@ -2,10 +2,19 @@ from flask import render_template, request
 import sqlite3
 from app import app
 
-@app.route('/', methods=['GET', 'POST'])
+# @app.route('/', methods=['GET', 'POST'])
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            a= request.form['username']
+            print(a)
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('teacher'))
+    return render_template('login.html', error=error)
 
 @app.route('/student')
 def student():
@@ -29,3 +38,17 @@ def teacher():
 
     row = cur.fetchone()
     return render_template('teacher.html', row = row)
+
+
+    def valid_login(username,password):
+    if username in database and password in passDatabase:
+        return True
+    else:
+        return False
+
+
+def log_the_user_in(username):
+    if username in teacherList:
+        return redirect(url_for('teacher'))
+    else:
+        return redirect(url_for('student'))
