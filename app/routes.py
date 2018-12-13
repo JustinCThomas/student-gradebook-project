@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 from flask import redirect, url_for, render_template, request
->>>>>>> 7b1d88ce0f522c857a80249f1cd9bf1c652d6bdc
 import sqlite3
 from app import app
 
@@ -43,21 +40,11 @@ def login():
 #     return render_template('teacher.html', row = row)
 
 
-<<<<<<< HEAD
-
-
-def valid_login(username,password):
-    if username in database and password in passDatabase:
-        return True
-    else:
-        return False
-=======
     def valid_login(username,password):
         if username in database and password in passDatabase:
             return True
         else:
             return False
->>>>>>> 7b1d88ce0f522c857a80249f1cd9bf1c652d6bdc
 
 
 def log_the_user_in(username):
