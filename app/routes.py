@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import redirect, url_for, render_template, request
 import sqlite3
 from app import app
 
@@ -41,10 +41,10 @@ def teacher():
 
 
     def valid_login(username,password):
-    if username in database and password in passDatabase:
-        return True
-    else:
-        return False
+        if username in database and password in passDatabase:
+            return True
+        else:
+            return False
 
 
 def log_the_user_in(username):
