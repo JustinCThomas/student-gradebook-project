@@ -21,22 +21,42 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    error = None
+
     if request.method == 'POST':
+        error = None
 
+        con = sqlite3.connect('database.db')
+        con.row_factory = sqlite3.Row
 
+        account = "teacher_accounts" if request.form['username'][-7:] == "tkh.org" else "student_accounts"
 
-        # user = Student.query.filter_by(username=request.form['username']).first()
-        # if user is None or not user.check_password(request.form['password'] ):
-        #     error = 'Invalid Credentials. Please try again.'
+        cur = con.cursor()
+        cur.execute("select * from {0} where email = '{1}' and password = '{2}'".format(account, request.form['username'], request.form['password']))
 
+        row = cur.fetchone()
+        if row and account == "teacher_accounts":
+            cur.execute("select * from teachers where id = {0}".
+            format(row['id']))
 
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-           
-            error = 'Invalid Credentials. Please try again.'
+            row = cur.fetchone()
+
+            return render_template('teacher.html', row = row)
+            # return redirect(url_for('teacher'), row)
+        elif row and account == "student_accounts":
+            cur.execute("select * from students where id = {0}".
+            format(row['id']))
+
+            row = cur.fetchone()
+
+            return render_template('student.html', row = row)
         else:
-            return redirect(url_for('teacher'))
-    return render_template('login.html', error=error)
+            error = 'Invalid Credentials. Please try again.'
+            return render_template('login.html', error=error)
+            # return redirect(url_for('student'))
+        # else:
+        #     return redirect(url_for('teacher'))
+
+    return render_template('login.html')
 
 @app.route('/student')
 def student():
