@@ -9,7 +9,7 @@
 
 	</head>
 	<body>
-		
+
 		<div class="container">
 			<div class="container">
 				<div class="row text-center fixed-top nav">
@@ -32,14 +32,12 @@
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="username" type="text" placeholder="Enter username" name="username" value="{{
-							request.form.username }}" required>
+						<input id="username" type="text" placeholder="Enter username" name="username" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="password" type="password" placeholder="Enter password" name="password" value="{{
-							request.form.password }}" required>
+						<input id="password" type="password" placeholder="Enter password" name="password" required>
 					</div>
 				</div>
 				<div class="row">
@@ -48,10 +46,6 @@
 					</div>
 				</div>
 			</form>
-			{% if error %}
-        	<p class="error"><strong>Error:</strong> {{ error }}
-      		{% endif %}
-
 
 			<div class="container-fluid fixed-bottom footer">
 				<div class="row">
