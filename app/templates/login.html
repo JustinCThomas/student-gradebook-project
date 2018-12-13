@@ -19,7 +19,7 @@
 			</div>
 
 				<!-- login section -->
-			<form method="POST" action='' class="container login">
+			<form method="POST" action='/login' class="container login">
 				<div class="row">
 					<div class="col">
 						<h6 id="login">Login</h6>
@@ -27,20 +27,25 @@
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="username" type="text" placeholder="Enter username" required>
+						<input id="username" type="text" placeholder="Enter username" value="{{
+							request.form.username }}">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="password" type="password" placeholder="Enter password" required>
+						<input id="password" type="password" placeholder="Enter password" value="{{
+							request.form.password }}">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="submit" type="submit" value="Submit">
+						<input id="submit" type="submit" class="btn btn-default" value="Login">
 					</div>
 				</div>
 			</form>
+			{% if error %}
+        	<p class="error"><strong>Error:</strong> {{ error }}
+      		{% endif %}
 
 
 			<div class="container-fluid fixed-bottom footer">
