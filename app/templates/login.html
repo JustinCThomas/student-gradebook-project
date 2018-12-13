@@ -14,6 +14,9 @@
 				<div class="row text-center fixed-top nav">
 					<div class="col">
 						<h1>Professor Gradebook</h1>
+						{% if error %}
+						<h3 style="color: darkred; font-size: 26px;"> {{error}}</h3>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -27,12 +30,12 @@
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="username" type="text" placeholder="Enter username" required>
+						<input id="username" type="text" name="username" placeholder="Enter username" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-1 text-center">
-						<input id="password" type="password" placeholder="Enter password" required>
+						<input id="password" type="password" name="password" placeholder="Enter password" required>
 					</div>
 				</div>
 				<div class="row">
