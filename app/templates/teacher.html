@@ -65,10 +65,14 @@
 			</header>
 			<h4>Search Students</h4>
 			<form>
-				First name:
+					Username:
+					<input type="text" name="username" value="{{
+						request.form.username }}">
+					<input  id="submit" class="btn btn-default" type="submit" value="Search">
+				<!-- First name:
 				<input type="text" name="firstname" placeholder="John">
 				LastName:
-				<input type="text" name="Last name" placeholder="Brown">
+				<input type="text" name="Last name" placeholder="Brown"> -->
 			</form>
 				<table >
 					<tr>
@@ -126,7 +130,7 @@
 						<td></td>
 					</tr>
 				</table>
-			<footer>Fluff</footer>
+			<footer>Problems? Let us know @ GraPy.pie@pi.py</footer>
 		</div>
 	</body>
 	</html>

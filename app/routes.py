@@ -40,7 +40,7 @@ def login():
 
             row = cur.fetchone()
 
-            return render_template('teacher.html', row = row)
+            return render_template('TeachersHomePage.html', row = row)
             # return redirect(url_for('teacher'), row)
         elif row and account == "student_accounts":
             cur.execute("select * from students where id = {0}".
@@ -94,7 +94,7 @@ def display_search_results():
 
     cur = con.cursor()
     cur.execute("select * from students where id = 1")
-
+    searchUser(cur,request.form['username'])
     return render_template('TeachersHomePage.html', row = row)
 
 
@@ -121,7 +121,7 @@ def searchUser(DATABASE, input):
     user = query_db('select * from users where username = ?',
                 [input], one=True)
     if user is None:
-        print 'No such user'
+        print ('No such user')
     else:
-        print the_username, 'has the id', user['user_id']
+        print (the_username, 'has the id', user['user_id'])
         render_template('TeachersHomePage.html')

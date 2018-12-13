@@ -91,10 +91,12 @@
 		<div class="sdiv">
 			<h4>Search Students</h4>
 			<form>
-				First name:
-				<input type="text" name="firstname" value="John">
-				LastName:
-				<input type="text" name="Last name" value="Brown">
+				<!-- First name:
+				<input type="text" name="firstname" value="{{
+					request.form.firstname }}"> -->
+				Username:
+				<input type="text" name="username" value="{{
+					request.form.username }}">
 				<input  id="submit" class="btn btn-default" type="submit" value="Search">
 			</form>
 		</div>
@@ -166,7 +168,7 @@
 					</tr>
 				</table>
 			</div>
-			<footer>Fluff</footer>
+			<footer>Search for your student's grades here!</footer>
 		</div>
 	</body>
 	</html>
