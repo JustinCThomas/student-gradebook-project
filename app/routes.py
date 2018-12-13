@@ -45,10 +45,6 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/process-login')
-def process_login():
-    pass
-
 @app.route('/student')
 def student():
     con = sqlite3.connect('database.db')
