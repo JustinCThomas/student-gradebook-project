@@ -14,13 +14,13 @@
 				background-position: center;
 				background-size: cover;
 			}
-			
+
 			table{
 				padding: 10px 0px 10px 0px;
 				margin:auto;
 				width: 80%;
 				align: center;
-				
+
 			}
 			th, td {
 				border:1px solid black;
@@ -28,12 +28,12 @@
 			}
 			header{
 				text-align: center;
-				background-color: #A0AEF9;				
+				background-color: #A0AEF9;
 				border-radius: 10%;
 				padding:5px 80px 5px 80px;
 			}
 			h1{
-				font-family: sans-serif;				
+				font-family: sans-serif;
 				font-weight: bolder;
 				font-size: 80px;
 			}
@@ -58,7 +58,7 @@
 				border: 5px solid gray;
 				text-align: center;
 				font-size: 25px;
-				
+
 			}
 			div.sdiv{
 				width: 200px;
@@ -80,13 +80,13 @@
 		</style>
 	</head>
 	<body>
-		
+
 
 		<div>
 			<header>
 				<h1>GraPy</h1>
 				<img src="{{url_for('static', filename='GraPy2.jpg')}}" alt='our logo' width="40%" height="60%">
-				<h3>Welcome, Teacher</h3>
+				<h3>Welcome, {{row["name"]}}</h3>
 			</header>
 		<div class="sdiv">
 			<h4>Search Students</h4>
@@ -101,74 +101,31 @@
 			</form>
 		</div>
 			<div class="tBorder">
-				<table > 
+				<table >
 					<tr>
 						<th>Name</th>
-						<th>Science</th>
 						<th>Art</th>
-						<th></th>
-						<th>Class 4</th>
-						<th>Class 5</th>
+						<th>Literature</th>
+						<th>Math</th>
+						<th>Science</th>
+						<th>History</th>
 						<th>GPA</th>
 					</tr>
 
 					{% for item in data %}
 							<tr>
-								<td>{{item[0]}}</td>
-								<td>{{item[1]}}</td>
-								...
+								<td>{{item["name"]}}</td>
+								<td>{{item["Art"]}}</td>
+								<td>{{item["Literature"]}}</td>
+								<td>{{item["Math"]}}</td>
+								<td>{{item["Science"]}}</td>
+								<td>{{item["History"]}}</td>
 							</tr>
-							{% endfor %}
+					{% endfor %}
 
-					<tr>
-							
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
 				</table>
 			</div>
-			<footer>Search for your student's grades here!</footer>
+			<!-- <footer>Search for your student's grades here!</footer> -->
 		</div>
 	</body>
 	</html>

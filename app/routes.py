@@ -40,7 +40,10 @@ def login():
 
             row = cur.fetchone()
 
-            return render_template('TeachersHomePage.html', row = row)
+            cur.execute("select * from students")
+            data = cur.fetchall()
+
+            return render_template('TeachersHomePage.html', row = row, data = data)
             # return redirect(url_for('teacher'), row)
         elif row and account == "student_accounts":
             cur.execute("select * from students where id = {0}".
@@ -102,9 +105,9 @@ def display_search_results():
 #     hash = generate_password_hash(attemptedPassword)
 #     if check_password_hash(username.Student.password_hash,attemptedPassword):
 #         redirect(url_for('teacher'))
-    
-        
-    
+
+
+
 # def validate_username(self, username):
 #         user = Student.query.filter_by(username=username.data).first()
 #         if user is not None:
