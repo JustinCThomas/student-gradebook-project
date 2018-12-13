@@ -2,7 +2,9 @@ from flask import redirect, url_for, render_template, request
 import sqlite3
 from app import app
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
