@@ -95,20 +95,31 @@
 				<input type="text" name="firstname" value="John">
 				LastName:
 				<input type="text" name="Last name" value="Brown">
+				<input  id="submit" class="btn btn-default" type="submit" value="Search">
 			</form>
 		</div>
 			<div class="tBorder">
 				<table > 
 					<tr>
 						<th>Name</th>
-						<th>Class 1</th>
-						<th>Class 2</th>
-						<th>Class 3</th>
+						<th>Science</th>
+						<th>Art</th>
+						<th></th>
 						<th>Class 4</th>
 						<th>Class 5</th>
 						<th>GPA</th>
 					</tr>
+
+					{% for item in data %}
+							<tr>
+								<td>{{item[0]}}</td>
+								<td>{{item[1]}}</td>
+								...
+							</tr>
+							{% endfor %}
+
 					<tr>
+							
 						<td></td>
 						<td></td>
 						<td></td>
