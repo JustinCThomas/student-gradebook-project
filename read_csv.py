@@ -2,6 +2,8 @@ import csv
 import random
 import json
 
+# Initialize the student dictionary that will eventually be exported
+# The subjects and grades lists will be used in randomly assigning students classes and grades
 students = {}
 subjects = ["Art", "Math", "History", "Literature", "Science"]
 grades = ["A", "B", "C", "F"]
