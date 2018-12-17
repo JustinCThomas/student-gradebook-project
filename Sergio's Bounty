@@ -1,0 +1,9 @@
+from random import randint
+g = []
+i = 0
+while i < 3:
+    x = randint(0,10)
+    if x not in g:
+        print (x)
+        g.append(x)
+        i += 1
