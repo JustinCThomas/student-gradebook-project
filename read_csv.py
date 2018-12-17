@@ -8,9 +8,15 @@ students = {}
 subjects = ["Art", "Math", "History", "Literature", "Science"]
 grades = ["A", "B", "C", "F"]
 
+# Opens the names.txt file for reading
 with open("names.txt") as csv_file:
+    # Separates the file contents line by line with a comma "," using the csv module
+    # Each line is then added as a list to a csv.reader object
+    # csv_reader is assigned to this object
     csv_reader = csv.reader(csv_file, delimiter=",")
+    print(csv_reader)
     for row in csv_reader:
+        print(type(row))
         students[row[0]] = {"subjects": {}}
         for i in range(5):
             students[row[0]]["subjects"][subjects[i]] = "Not Enrolled"
