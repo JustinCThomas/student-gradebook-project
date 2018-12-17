@@ -6,6 +6,20 @@ from app import app, models
 
 
 
+# bonus challenge from sergio(better pay up or ill flatten his earth)
+from random import randint
+g = []
+i = 0
+while i < 3:
+    x = randint(0,10)
+    if x not in g:
+        print (x)
+        g.append(x)
+        i += 1
+print(randint(0, 5))
+
+
+
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -15,39 +29,65 @@ def get_db():
 
 # from models import Student
 
+# start app with login page
 @app.route('/')
 def home():
     return redirect(url_for('login'))
 
+
+# enable request methods to be used from the login page to access the others
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
+# post request relevant for search and login
     if request.method == 'POST':
+        # initialize error so it can be called later
         error = None
-
+        # initialize sql database
         con = sqlite3.connect('database.db')
-        con.row_factory = sqlite3.Row
 
+        # enables calling of rows by name
+        con.row_factory = sqlite3.Row
+# check for student or teacher account
         account = "teacher_accounts" if request.form['username'][-7:] == "tkh.org" else "student_accounts"
 
+
+# allow database cursor to be used and find the user login entries in the database
         cur = con.cursor()
         cur.execute("select * from {0} where email = '{1}' and password = '{2}'".format(account, request.form['username'], request.form['password']))
 
+# gets the next row of the database
         row = cur.fetchone()
+
+
+        # if the selected row and imputed account match in category
+
         if row and account == "teacher_accounts":
             cur.execute("select * from teachers where id = {0}".
             format(row['id']))
 
             row = cur.fetchone()
 
+            
             cur.execute("select * from students")
+#search doesnt work yet
+            searchUser(cur,request.form['username'])
+
             data = cur.fetchall()
+
+
+            
+
 
             return render_template('TeachersHomePage.html', row = row, data = data)
             # return redirect(url_for('teacher'), row)
+
+
+        # check for student account and render if it is one
         elif row and account == "student_accounts":
             cur.execute("select * from students where id = {0}".
             format(row['id']))
+
+
 
             row = cur.fetchone()
 
@@ -60,7 +100,7 @@ def login():
         #     return redirect(url_for('teacher'))
 
     return render_template('login.html')
-
+## currently inactive student page
 @app.route('/student')
 def student():
     con = sqlite3.connect('database.db')
@@ -77,7 +117,7 @@ def student():
 
 
     return render_template('StudentPage.html', row = row)
-
+## code to display teacher page
 @app.route('/teacher')
 def teacher():
     con = sqlite3.connect('database.db')
@@ -90,15 +130,21 @@ def teacher():
     return render_template('TeachersHomePage.html', row = row)
 
 
+
+# cod to dispaly student page  
 @app.route('/teacher')
 def display_search_results():
     con = sqlite3.connect('database.db')
     con.row_factory = sqlite3.Row
 
     cur = con.cursor()
-    cur.execute("select * from students where id = 1")
     searchUser(cur,request.form['username'])
+    cur.execute("select * from students where id = 1")
+    
     return render_template('TeachersHomePage.html', row = row)
+
+
+
 
 
 # def valid_login(username,attemptedPassword):
@@ -121,10 +167,10 @@ def display_search_results():
 #         return redirect(url_for('student'))
 
 def searchUser(DATABASE, input):
-    user = query_db('select * from users where username = ?',
-                [input], one=True)
+    user = DATABASE.execute('select * from students where name = %s}'% (input,))
+
     if user is None:
         print ('No such user')
     else:
         print (the_username, 'has the id', user['user_id'])
-        render_template('TeachersHomePage.html')
+        render_template('TeachersHomePage.html', item = user)
