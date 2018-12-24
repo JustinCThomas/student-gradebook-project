@@ -67,15 +67,15 @@ def login():
 
             row = cur.fetchone()
 
-            
+
             cur.execute("select * from students")
 #search doesnt work yet
-            searchUser(cur,request.form['username'])
+            # searchUser(cur,request.form['username'])
 
             data = cur.fetchall()
 
 
-            
+
 
 
             return render_template('TeachersHomePage.html', row = row, data = data)
@@ -131,7 +131,7 @@ def teacher():
 
 
 
-# cod to dispaly student page  
+# cod to dispaly student page
 @app.route('/teacher')
 def display_search_results():
     con = sqlite3.connect('database.db')
@@ -140,7 +140,7 @@ def display_search_results():
     cur = con.cursor()
     searchUser(cur,request.form['username'])
     cur.execute("select * from students where id = 1")
-    
+
     return render_template('TeachersHomePage.html', row = row)
 
 
@@ -166,11 +166,11 @@ def display_search_results():
 #     else:
 #         return redirect(url_for('student'))
 
-def searchUser(DATABASE, input):
-    user = DATABASE.execute('select * from students where name = %s}'% (input,))
-
-    if user is None:
-        print ('No such user')
-    else:
-        print (the_username, 'has the id', user['user_id'])
-        render_template('TeachersHomePage.html', item = user)
+# def searchUser(DATABASE, input):
+#     user = DATABASE.execute('select * from students where name = %s}'% (input,))
+#
+#     if user is None:
+#         print ('No such user')
+#     else:
+#         print (the_username, 'has the id', user['user_id'])
+#         render_template('TeachersHomePage.html', item = user)
