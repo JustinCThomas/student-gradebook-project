@@ -1,0 +1,7 @@
+Purely for testing purposes.
+
+The admin account information is:
+
+username: PythonAdmin
+email:    pya@gmail.com
+password: pythonadmin
