@@ -72,7 +72,7 @@
 		<div>
 			<header>
 				<h1>GraPy</h1>
-				<h3>Welcome, {{row["name"]}}</h3>
+				<h3>Welcome, {{ student.name }}</h3>
 			</header>
 			<h4>Search Grades</h4>
 			<form>
@@ -94,27 +94,27 @@
 					</tr>
 					<tr>
 						<td>ART</td>
-						<td>{{row["Art"]}}</td>
+						<td>{{ student.Art }}</td>
 
 					</tr>
 					<tr>
 						<td>LITERATURE</td>
-						<td>{{row["Literature"]}}</td>
+						<td>{{ student.Literature}}</td>
 
 					</tr>
 					<tr>
 						<td>MATH</td>
-						<td>{{row["Math"]}}</td>
+						<td>{{ student.Math }}</td>
 
 					</tr>
 					<tr>
 						<td>SCIENCE</td>
-						<td>{{row["Science"]}}</td>
+						<td>{{ student.Science }}</td>
 
 					</tr>
 					<tr>
 						<td>HISTORY</td>
-						<td>{{row["History"]}}</td>
+						<td>{{ student.History}}</td>
 
 					</tr>
 				</table>

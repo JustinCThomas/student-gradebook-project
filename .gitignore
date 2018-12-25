@@ -1,6 +1,5 @@
 students.csv
 students.json
-database.db
 venv/
 gradebook_env/
 __pycache__/
