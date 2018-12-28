@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 	<html>
 	<head>
+		<meta charset="utf-8">
 		<title>Login | Professor Gradebook</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
-		<!-- Implement Django Version Soon -->
-		<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'users/css/mystyles.css' %}">
 
 	</head>
 	<body>
@@ -18,8 +19,7 @@
 			<div class="container">
 				<div class="row text-center fixed-top nav">
 					<div class="col">
-						<!-- Implement Django Version Soon for GraPy2.jpg logo <img src= alt='our logo' width="40%" height="60%">-->
-						<img src="" alt='our logo' width="40%" height="60%">
+						<img src="{% static 'users/images/GraPy2.jpg' %}" alt='our logo' width="40%" height="60%">
 						<!-- <h1>Professor Gradebook</h1> -->
 						{% if error %}
 						<h3 style="color: darkred; font-size: 26px;"> {{error}}</h3>
