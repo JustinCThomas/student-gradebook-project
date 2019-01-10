@@ -29,7 +29,8 @@
 			</div>
 
 				<!-- login section -->
-			<form method="POST" action="/login/" class="container login">
+			<form method="POST" action="{% url 'users-student' %}" class="container login">
+				{% csrf_token %}
 				<div class="row">
 					<div class="col">
 						<h6 id="login">Login</h6>
